@@ -1,24 +1,24 @@
 import React from "react"
+import TodoItem from "./TodoItem.jsx"
 
-class TodosList extends React.Component {
-  
+class TodoList extends React.Component {
+  // super(props)
 
-  handleDeleteButton = (e) => {
+  handleDeleteButton = (event) => {
     const { todoId, handleDeleteTodo } = this.props
     handleDeleteTodo(todoId)
   }
 
   render() {
-    const { todoMessage } = this.props
-
-    console.log(this.props)
-    return <li>{todoMessage}<button onClick={this.handleDeleteButton}>Delete</button></li>
+    return (
+      <TodoItem
+        todoMessage={this.props.todoMessage}
+        handleDeleteButton={this.handleDeleteButton}
+      />
+    )
   }
 }
-
-
-
-export default TodosList
+export default TodoList
 
 
 
